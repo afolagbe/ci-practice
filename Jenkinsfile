@@ -11,22 +11,6 @@ pipeline {
         NEXUS_IP = '172.31.23.174'
     }
     stages{
-        stage('SETUP PARAMETERS'){
-            steps{
-                script{
-                    properties([
-                        string(
-                            defaultValue: '',
-                            name: 'BUILD'
-                        ),
-                        string(
-                            defaultValue: '',
-                            name: 'TIME'
-                        )
-                    ])
-                }
-            }
-        }
         
         stage('ANSIBLE DEPLOY to PRODUCTION'){
             steps{
