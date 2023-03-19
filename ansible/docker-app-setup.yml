@@ -31,15 +31,15 @@
     args:
       chdir: /tmp/
 
-  - name: Delete current artifact
-    file:
-      path: "{{item}}"
-      state: absent
-    #when: archive_info.changed
-    loop:
-    - /tmp/ROOT.war
-    tags:
-    - deploy
+#  - name: Delete current artifact
+#    file:
+#      path: "{{item}}"
+#      state: absent
+#    #when: archive_info.changed
+#    loop:
+#    - /tmp/ROOT.war
+#    tags:
+#    - deploy
 
   - name: Install aptitude
     apt:
@@ -80,21 +80,21 @@
   - name: docker build app
     community.docker.docker_image:
       build:
-        path: ./Docker-files/app
+        path: Docker-files/app
       name: mukeshktc/vproapp
       tag: v1 
       source: build
   - name: docker build db
     community.docker.docker_image:
       build:
-        path: ./Docker-files/db
+        path: Docker-files/db
       name: mukeshktc/vprodb
       tag: v1 
       source: build 
   - name: docker build web
     community.docker.docker_image:
       build:
-        path: ./Docker-files/web
+        path: Docker-files/web
       name: mukeshktc/vproweb
       tag: v1 
       source: build          
