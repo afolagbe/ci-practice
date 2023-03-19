@@ -18,11 +18,11 @@
   - name: copy dockerfiles  
     copy:
       src: Docker-files
-      dest: /tmp/Docker-files
+      dest: /tmp/
   - name: copy compose  
     copy:
       src: compose
-      dest: /tmp/compose                  
+      dest: /tmp/              
 
   - stat:
       path: /tmp/ROOT.war
