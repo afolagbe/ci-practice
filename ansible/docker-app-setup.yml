@@ -94,25 +94,25 @@
   - name: docker build app
     community.docker.docker_image:
       build:
-        path: tmp/Docker-files/app
+        path: /tmp/Docker-files/app
       name: mukeshktc/vproapp
       tag: v1 
       source: build
   - name: docker build db
     community.docker.docker_image:
       build:
-        path: tmp/Docker-files/db
+        path: /tmp/Docker-files/db
       name: mukeshktc/vprodb
       tag: v1 
       source: build 
   - name: docker build web
     community.docker.docker_image:
       build:
-        path: tmp/Docker-files/web
+        path: /tmp/Docker-files/web
       name: mukeshktc/vproweb
       tag: v1 
       source: build          
   - name: docker compose to group together in a network
     community.docker.docker_compose:
-      project_src: tmp/compose
+      project_src: /tmp/compose
       state: present                     
