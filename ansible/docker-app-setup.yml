@@ -83,6 +83,7 @@
         path: Docker-files/app
         remote_src: false
       name: mukeshktc/vproapp
+      remote_src: true
       tag: v1 
       source: build
   - name: docker build db
@@ -91,6 +92,7 @@
         path: Docker-files/db
         remote_src: false
       name: mukeshktc/vprodb
+      remote_src: true
       tag: v1 
       source: build 
   - name: docker build web
@@ -99,6 +101,7 @@
         path: Docker-files/web
         remote_src: false
       name: mukeshktc/vproweb
+      remote_src: true
       tag: v1 
       source: build          
   - name: docker compose to group together in a network
