@@ -22,7 +22,13 @@
   - name: copy compose  
     copy:
       src: compose
-      dest: /tmp/              
+      dest: /tmp/   
+
+  - name: Synchronize ROOT.war with Dockerfile location
+    synchronize:
+      src: "/tmp/ROOT.war"
+      dest: /tmp/Docker-files/app/
+    delegate_to: "{{ inventory_hostname }}"                 
 
   - stat:
       path: /tmp/ROOT.war
