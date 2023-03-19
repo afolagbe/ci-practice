@@ -81,6 +81,7 @@
     community.docker.docker_image:
       build:
         path: Docker-files/app
+        remote_src: false
       name: mukeshktc/vproapp
       tag: v1 
       source: build
@@ -88,6 +89,7 @@
     community.docker.docker_image:
       build:
         path: Docker-files/db
+        remote_src: false
       name: mukeshktc/vprodb
       tag: v1 
       source: build 
@@ -95,6 +97,7 @@
     community.docker.docker_image:
       build:
         path: Docker-files/web
+        remote_src: false
       name: mukeshktc/vproweb
       tag: v1 
       source: build          
