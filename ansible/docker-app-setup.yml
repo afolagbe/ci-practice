@@ -10,10 +10,10 @@
        - deploy
   - file:
       name: /tmp/Docker-files
-      state: directory
+      state: absent
   - file:
       name: /tmp/compose
-      state: directory    
+      state: absent    
 
   - name: copy dockerfiles  
     copy:
