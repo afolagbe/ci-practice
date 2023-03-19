@@ -35,7 +35,7 @@
     file:
       path: "{{item}}"
       state: absent
-    when: archive_info.changed
+    #when: archive_info.changed
     loop:
     - /tmp/ROOT.war
     tags:
