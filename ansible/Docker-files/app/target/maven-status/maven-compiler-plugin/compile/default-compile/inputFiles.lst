@@ -1,0 +1,11 @@
+/home/ubuntu/ci-practice/src/main/java/com/visualpathit/account/validator/UserValidator.java
+/home/ubuntu/ci-practice/src/main/java/com/visualpathit/account/service/SecurityService.java
+/home/ubuntu/ci-practice/src/main/java/com/visualpathit/account/model/Role.java
+/home/ubuntu/ci-practice/src/main/java/com/visualpathit/account/service/UserService.java
+/home/ubuntu/ci-practice/src/main/java/com/visualpathit/account/service/SecurityServiceImpl.java
+/home/ubuntu/ci-practice/src/main/java/com/visualpathit/account/controller/UserController.java
+/home/ubuntu/ci-practice/src/main/java/com/visualpathit/account/model/User.java
+/home/ubuntu/ci-practice/src/main/java/com/visualpathit/account/service/UserServiceImpl.java
+/home/ubuntu/ci-practice/src/main/java/com/visualpathit/account/repository/UserRepository.java
+/home/ubuntu/ci-practice/src/main/java/com/visualpathit/account/service/UserDetailsServiceImpl.java
+/home/ubuntu/ci-practice/src/main/java/com/visualpathit/account/repository/RoleRepository.java
