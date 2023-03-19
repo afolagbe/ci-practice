@@ -8,13 +8,27 @@
     register: wardeploy
     tags:
        - deploy
+  - file:
+      name: /tmp/Docker-files
+      state: directory
+  - file:
+      name: /tmp/compose
+      state: directory    
+
+  - name: copy dockerfiles  
+    copy:
+      src: Docker-files
+      dest: /tmp/Docker-files
+  - name: copy compose  
+    copy:
+      src: compose
+      dest: /tmp/compose                  
 
   - stat:
       path: /tmp/ROOT.war
     register: artifact_stat
     tags:
     - deploy
-
 
  
  # - name: Archive ROOT dir with timestamp
@@ -80,31 +94,25 @@
   - name: docker build app
     community.docker.docker_image:
       build:
-        path: Docker-files/app
-        remote_src: false
+        path: tmp/Docker-files/app
       name: mukeshktc/vproapp
-      remote_src: true
       tag: v1 
       source: build
   - name: docker build db
     community.docker.docker_image:
       build:
-        path: Docker-files/db
-        remote_src: false
+        path: tmp/Docker-files/db
       name: mukeshktc/vprodb
-      remote_src: true
       tag: v1 
       source: build 
   - name: docker build web
     community.docker.docker_image:
       build:
-        path: Docker-files/web
-        remote_src: false
+        path: tmp/Docker-files/web
       name: mukeshktc/vproweb
-      remote_src: true
       tag: v1 
       source: build          
   - name: docker compose to group together in a network
     community.docker.docker_compose:
-      project_src: compose
+      project_src: tmp/compose
       state: present                     
