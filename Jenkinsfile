@@ -12,6 +12,7 @@ pipeline {
         SNAP_REPO = 'vpro-snapshots'
         NEXUS_USER = 'admin'
         NEXUS_PASS = credentials('nexuspass')
+        DOCKER_PASS= credentials('dockerpass')
         RELEASE_REPO = 'vpro-release'
         CENTRAL_REPO = 'vpro-maven-central'
         NEXUS_IP = '172.31.23.174'
@@ -105,6 +106,7 @@ pipeline {
                         build: "${env.BUILD_ID}",
                         time: "${env.BUILD_TIMESTAMP}",
                         vprofile_version: "vproapp-${env.BUILD_ID}-${env.BUILD_TIMESTAMP}.war"
+                        DOCKER_PASS: "${DOCKER_PASS}"
 
                     ]
                 ])
