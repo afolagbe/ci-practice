@@ -20,6 +20,8 @@
   - name: try and take backup of ROOT.war
     shell: cp -r ROOT.war old_ROOT.war 
     when: artifact_stat.stat.exists
+    args:
+      chdir: /tmp/
 
   - name: delete current Docker-files
     file:
