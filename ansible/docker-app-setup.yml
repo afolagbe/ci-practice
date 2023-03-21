@@ -89,7 +89,7 @@
   - name: dockerhub login
     docker_login:
       username: mukeshktc
-      password: "{{DOCKER_PASS}}"
+      password: "{{dockerPass}}"
   - name: docker build app
     community.docker.docker_image:  
       build:

@@ -106,7 +106,7 @@ pipeline {
                         build: "${env.BUILD_ID}",
                         time: "${env.BUILD_TIMESTAMP}",
                         vprofile_version: "vproapp-${env.BUILD_ID}-${env.BUILD_TIMESTAMP}.war"
-                        DOCKER_PASS: "${DOCKER_PASS}"
+                        dockerPass: "${DOCKER_PASS}"
 
                     ]
                 ])
