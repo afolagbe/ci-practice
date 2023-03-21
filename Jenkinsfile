@@ -15,7 +15,7 @@ pipeline {
         DOCKER_PASS= credentials('dockerpass')
         RELEASE_REPO = 'vpro-release'
         CENTRAL_REPO = 'vpro-maven-central'
-        NEXUS_IP = '172.31.23.174'
+        NEXUS_IP = '172.31.8.109'
         NEXUS_PORT = '8081'
         NEXUS_GRP_REPO = 'vpro-maven-group'
         NEXUS_LOGIN = 'nexuslogin'
@@ -94,7 +94,7 @@ pipeline {
                     playbook: 'ansible/site.yml',
                     installation: 'ansible',
                     colorized: true,
-                    credentialsId: 'applogin-stage',
+                    credentialsId: 'dockerlogin',
                     disableHostKeyChecking: true,
                     extraVars:[
                         USER: 'admin',
