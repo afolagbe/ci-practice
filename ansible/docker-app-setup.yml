@@ -17,9 +17,9 @@
     register: artifact_stat
     tags:
     - deploy
-#  - name: try and take backup of ROOT.war
-#    shell: cp -r ROOT.war old_ROOT.war 
-#    when: artifact_stat.stat.exists
+  - name: try and take backup of ROOT.war
+    shell: cp -r ROOT.war old_ROOT.war 
+    when: artifact_stat.stat.exists
 
   - name: delete current Docker-files
     file:
