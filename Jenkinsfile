@@ -37,6 +37,14 @@ pipeline {
             steps {
                 sh 'mvn -s settings.xml test'
             }
+            post {
+                success {
+            echo 'Test Stage'
+            slackSend channel: '#project-ci',
+            color: 'good',
+            message: "Test Stage is success Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
+        }
+    }
         }
         stage ('CHECKSTYLE ANALYSIS'){
             steps{
