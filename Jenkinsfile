@@ -14,12 +14,12 @@ pipeline {
         NEXUS_PASS = 'admin'
         RELEASE_REPO = 'vpro-release'
         CENTRAL_REPO = 'vpro-maven-central'
-        NEXUS_IP = '172.31.9.85'
+        NEXUS_IP = '172.31.14.85'
         NEXUS_PORT = '8081'
         NEXUS_GRP_REPO = 'vpro-maven-group'
         NEXUS_LOGIN = 'nexuslogin'
-        SONARSERVER = 'SONARSERVER'
-        SONARSCANNER = 'sonar-scanner'
+        SONARSERVER = 'sonarserver'
+        SONARSCANNER = 'sonarscanner'
     }
     stages{
         stage('BUILD'){
@@ -37,6 +37,14 @@ pipeline {
             steps {
                 sh 'mvn -s settings.xml test'
             }
+            post {
+                success {
+            echo 'Test Stage'
+            slackSend channel: '#project-ci',
+            color: 'good',
+            message: "Test Stage is success Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
+        }
+    }
         }
         stage ('CHECKSTYLE ANALYSIS'){
             steps{
