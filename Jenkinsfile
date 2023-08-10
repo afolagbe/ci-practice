@@ -14,12 +14,12 @@ pipeline {
         NEXUS_PASS = 'admin'
         RELEASE_REPO = 'vpro-release'
         CENTRAL_REPO = 'vpro-maven-central'
-        NEXUS_IP = '172.31.14.85'
+        NEXUS_IP = '172.31.89.160'
         NEXUS_PORT = '8081'
         NEXUS_GRP_REPO = 'vpro-maven-group'
         NEXUS_LOGIN = 'nexuslogin'
-        SONARSERVER = 'sonarserver'
-        SONARSCANNER = 'sonarscanner'
+        SONARSERVER = 'SONARSERVER'
+        SONARSCANNER = 'SONARSCANNER'
     }
     stages{
         stage('BUILD'){
@@ -40,7 +40,7 @@ pipeline {
             post {
                 success {
             echo 'Test Stage'
-            slackSend channel: '#project-ci',
+            slackSend channel: '#cicd-devops',
             color: 'good',
             message: "Test Stage is success Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
         }
@@ -98,7 +98,7 @@ pipeline {
     post {
         always {
             echo 'slack notifications.'
-            slackSend channel: '#project-ci',
+            slackSend channel: '#cicd-devops',
             color: COLOR_MAP[currentBuild.currentResult],
             message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
         }
