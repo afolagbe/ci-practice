@@ -1,8 +1,8 @@
 FROM openjdk:8 AS BUILD_IMAGE
 RUN apt update && apt install maven -y
-RUN git clone -b vp-docker https://github.com/mukeshktc/my-project.git
+RUN git clone -b vp-docker https://github.com/mukeshktc/my-cicd-project.git
 RUN mkdir vprofile-repo
-RUN mv my-project/* vprofile-repo/
+RUN mv my-cicd-project/* vprofile-repo/
 RUN cd vprofile-repo && mvn install
 
 FROM tomcat:8-jre11
